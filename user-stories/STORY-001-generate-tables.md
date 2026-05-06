@@ -1,0 +1,1 @@
+As a software engineer on this project, I want have two arrays of data which represent action and theme random tables for a TTRPG where each array has 50 entries, so that I can build features that use these tables.
