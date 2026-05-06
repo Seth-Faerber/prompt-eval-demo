@@ -1,0 +1,1 @@
+As a user of this application, I want to be able to trigger the generation of a random tuple when I need it using natural language, so that I can get interpretations for my TTRPG game.

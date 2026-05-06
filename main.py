@@ -10,6 +10,9 @@ Type your prompt, get Claude's response. Type 'quit' or 'exit' to stop.
 import os                          # Built-in: access environment variables
 from dotenv import load_dotenv     # Reads .env file into environment variables
 from anthropic import Anthropic    # The Claude SDK client
+from trigger import is_trigger
+from randomizer import get_random_combination
+from interpreter import interpret_combination
 
 
 def main():
@@ -53,6 +56,17 @@ def main():
         # Skip empty inputs
         if not user_input.strip():
             continue  # Jump back to the top of the while loop
+
+        # Check if the user wants a random TTRPG combo.
+        if is_trigger(user_input):
+            try:
+                combo = get_random_combination()
+                print(f"\n🎲 Rolled: Action = {combo[0]}, Theme = {combo[1]}")
+                interpretation = interpret_combination(combo)
+                print(f"\nClaude: {interpretation}\n")
+            except Exception as e:
+                print(f"\nERROR: {e}\n")
+            continue
 
         # Send the request to Claude.
         # 'messages' is a list of dicts — each dict has a 'role' and 'content'.
