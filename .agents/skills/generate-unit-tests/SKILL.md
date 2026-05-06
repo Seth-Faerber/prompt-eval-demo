@@ -13,7 +13,7 @@ The acceptance criteria can be found in the `acceptance-criteria` directory at t
 
 Return unit tests for the acceptance criteria.
 
-Write the unit tests in a markdown file in the `unit-tests` directory at the root of this project. It should be named `TEST-{user-story-id}-{feature-description}.md`.
+Write the unit tests to a file in the `unit-tests` directory at the root of this project. It should be named `TEST-{user-story-id}-{feature-description}.py`.
 
 ## Constraints
 
