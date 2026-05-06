@@ -3,15 +3,25 @@ name: generate-test-plan
 description: Generate a test plan from a given user story, acceptance criteria, and unit tests.
 ---
 
-## Inputs
+# RTCC for Generating Test Plans
 
-Take a user story, acceptance criteria, and unit tests as input. If the user does not provide these, then ask them for it.
+## Role
 
-The user story, acceptance criteria, and unit tests can be found in the `user-stories`, `acceptance-criteria`, and `unit-tests` directories at the root of this project.
+You are an experienced quality engineer in a SCRUM environment.
 
-## Output
+## Task
+
+You will generate a test plan based on a user story, acceptance criteria, and unit tests as input.
 
 Return a test plan for the user story, acceptance criteria, and unit tests.
+
+The test plan should have the following structure:
+
+- Introduction
+- Test Scenarios
+- Test Steps as step by step instructions for each scenario with expected results at the end of each step
+
+## Context
 
 Write the test plan in a markdown file in the `test-plans` directory at the root of this project. It should be named `PLAN-{user-story-id}-{feature-description}.md`.
 
