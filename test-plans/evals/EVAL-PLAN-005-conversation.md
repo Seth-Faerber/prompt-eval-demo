@@ -26,4 +26,3 @@ Scenario 3:
 1. Send a message to the AI
 2. Send an empty message to the AI
 3. Verify that it doesn't choke
-

@@ -13,6 +13,7 @@ from anthropic import Anthropic    # The Claude SDK client
 from trigger import is_trigger
 from randomizer import get_random_combination
 from interpreter import interpret_combination
+from conversation import Conversation
 
 
 def main():
@@ -41,6 +42,9 @@ def main():
     print("=== Prompt Eval Demo ===")
     print(f"Model: {model}")          # f-strings are Python's string interpolation (like $"..." in C#)
     print("Type a prompt and press Enter. Type 'quit' or 'exit' to stop.\n")
+
+    # Keep track of the full conversation so the AI can reference earlier turns.
+    history = Conversation()
 
     # This is an infinite loop — it keeps running until we 'break' out of it.
     while True:
@@ -72,17 +76,21 @@ def main():
         # 'messages' is a list of dicts — each dict has a 'role' and 'content'.
         # This is similar to how chat APIs work everywhere.
         try:
+            # Add the user's message to the conversation history.
+            history.add_user_message(user_input)
+
             response = client.messages.create(
                 model=model,
                 max_tokens=1024,
-                messages=[
-                    {"role": "user", "content": user_input}
-                ],
+                messages=history.get_messages(),
             )
 
             # The response contains a list of content blocks.
             # For a simple text response, we grab the first block's text.
             assistant_text = response.content[0].text
+
+            # Add the assistant's reply to the conversation history.
+            history.add_assistant_message(assistant_text)
 
             print(f"\nClaude: {assistant_text}\n")
 
