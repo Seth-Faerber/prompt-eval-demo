@@ -1,0 +1,1 @@
+As a user, I want to be able to trigger a random table tuple roll with three different commands (/succeed, /fail, /roll) so that I can quickly access table-related functionality and give the model context for how to interpret the roll in either a positive, negative, or neutral way.
