@@ -20,6 +20,7 @@ The test plan should have the following structure:
 - Introduction
 - Test Scenarios
 - Test Steps as step by step instructions for each scenario with expected results at the end of each step
+- Reasonable edge cases should be included for manual testing. Ignore extreme edge cases.
 
 ## Context
 
